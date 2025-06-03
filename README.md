@@ -1,1 +1,1 @@
-# proyecto-dise-o-bioing-2025
+# proyecto-diseño-bioing-2025
