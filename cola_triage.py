@@ -5,20 +5,13 @@ class GestorColas:
     def __init__(self, tiempos_limite):
         """
         tiempos_limite: dict {'I': 0, 'II': 30, 'III': 60, 'IV': 120, 'V': 240}
-        Todos los tiempos en minutos.
         """
         self.tiempos_limite = tiempos_limite
         self.cola = []  # (prioridad_tuple, contador, paciente)
         self.contador = 0
 
     def prioridad_paciente(self, paciente):
-        """
-        Regla de oro:
-        - Nivel de triaje SIEMPRE pesa más.
-        - Dentro del mismo nivel, primero los que ya excedieron el tiempo, y luego el que más tiempo ha excedido.
-        - Luego, los que están próximos a exceder (menor margen al límite).
-        - Finalmente, orden de llegada.
-        """
+        
         t_espera = paciente.tiempo_espera()
         t_limite = self.tiempos_limite.get(paciente.nivel_triaje, 9999)
         nivel_num = {"I": 0, "II": 1, "III": 2, "IV": 3, "V": 4}[paciente.nivel_triaje]  # menor es más urgente
