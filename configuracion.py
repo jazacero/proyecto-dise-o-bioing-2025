@@ -21,8 +21,6 @@ class ConfiguracionTiempos:
     def definir_tiempo(self, nivel_triaje, minutos):
         """
         Permite al administrador configurar el tiempo para un nivel específico.
-        :param nivel_triaje: Uno de 'I', 'II', 'III', 'IV', 'V'
-        :param minutos: Tiempo máximo de espera permitido en minutos.
         """
         if nivel_triaje in ['I', 'II', 'III', 'IV', 'V']:
             self.tiempos[nivel_triaje] = minutos
@@ -36,9 +34,7 @@ class ConfiguracionTiempos:
         return self.tiempos.get(nivel_triaje, None)
 
     def mostrar_configuracion(self):
-        """
-        Muestra los tiempos configurados por nivel de triaje.
-        """
+
         return self.tiempos
     
     def guardar_tiempos_personalizados(self, archivo="tiempos_personalizados.json"):
