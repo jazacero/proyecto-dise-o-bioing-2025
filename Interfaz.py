@@ -417,7 +417,7 @@ class InterfazTriage:
         # --- Tiempo actual en espera
         ttk.Label(ventana, text=f"Tiempo actual en espera: {paciente.tiempo_espera():.1f} min").grid(row=6, column=0, columnspan=2)
 
-        # --- Tiempo estimado de espera (ML)
+        # --- Tiempo estimado de espera 
         tiempo_estimado_val = ""
         if hasattr(self, "df_historico") and not self.df_historico.empty:
             hora = paciente.ingreso.hour
